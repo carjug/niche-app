@@ -8,19 +8,23 @@
  -->
   <link rel="stylesheet" type="text/css" href="assets/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="assets/javascripts/places.js"></script>
 </head>
 
 <header>
+  <div class="small-header">
+    <a href="index.html"><h5>Niche</h5></a>
+  </div>
   <div class="jumbotron">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
           <h1>Welcome to Niche!</h1>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Where are you going?">
+            <input id = "city" type="text" class="form-control" placeholder="Where are you going?">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+              <button id="city-search" class="btn btn-default" type="button" method="get">Go!</button>
             </span>
           </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
@@ -30,7 +34,8 @@
 </header>
 
 <body>
-
+  <div class="places">
+  </div>
 </body>
 
 </html>
