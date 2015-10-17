@@ -1,4 +1,15 @@
 $( function() {
+  $( "#sign-up" ).click(function () {
+    event.preventDefault();
+    var button = $(this);
+    renderRegistration(button);
+  });
+
+  $("#register").click(function () {
+    event.preventDefault();
+
+  });
+
   $( "#city-search" ).click(function () {
     event.preventDefault();
     var places_div = $("div.places");
@@ -29,6 +40,11 @@ $( function() {
     })
   });
 });
+
+function renderRegistration(element) {
+  element.parents("header").slideUp("fast");
+  $(".sign-up-form").css("display", "block");
+}
 
 function sendApology() {
   var p = $("<p></p>");

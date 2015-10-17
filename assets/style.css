@@ -1,3 +1,19 @@
+#logo {
+  padding-left: .75rem;
+}
+
 #login {
+  padding-right: .75rem;
   display: inline-block;
 }
+
+#sign-up {
+  padding-right: .75rem;
+}
+
+.sign-up-form {
+  margin: 0 auto;
+  width: 30rem;
+  display: none;
+}
+
