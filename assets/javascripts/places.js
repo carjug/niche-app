@@ -1,36 +1,4 @@
 $( function() {
-  $( "#sign-up" ).click(function () {
-    event.preventDefault();
-    var button = $(this);
-    renderRegistration(button);
-  });
-
-  $("#register").click(function () {
-    event.preventDefault();
-    var button    = $(this);
-    var method    = button.attr("method");
-    var name      = $("#user").val();
-    var pass      = $("#password").val();
-    var pass_conf = $("#password-confirmation").val();
-
-    var url  = "http://localhost:3000/register/" + name + "/" + pass + "/" + pass_conf
-
-    $.ajax(url, {
-      type: method,
-      dataType: 'json',
-      success: function (data, textStatus, jqHXR) {
-        if (jqHXR.status == 200) {
-          var user = data.username
-          showLoggedInState(user);
-
-        }
-        else if (jqHXR.status == 400) {
-          renderRegistration();
-        }
-      }
-    });
-
-  });
 
   $( "#city-search" ).click(function () {
     event.preventDefault();
@@ -54,7 +22,7 @@ $( function() {
           }
         }
         else if (jqHXR.status == 204) {
-          var apology = sendApology("place");
+          var apology = sendApology();
 
           messages.append(apology);
         }
@@ -63,28 +31,10 @@ $( function() {
   });
 });
 
-function renderRegistration(element) {
-  element.parents("header").slideUp("fast");
-  $(".sign-up-form").css("display", "block");
-}
 
-function showLoggedInState(user) {
-  $(".sign-up-form").css("display", "none");
-  $("#sign-up").css("display", "none");
-  $(".login").toggleClass("logout")
-  $(".logout").text("Log Out")
-
-  $("header").slideDown();
-}
-
-function sendApology(thing) {
+function sendApology() {
   var p = $("<p></p>");
-  if(thing == "place") {
-    var apology = "Sorry! There are no places in our database for that city.";
-  }
-  else if(thing == "user") {
-    var apology = "User could not be created."
-  }
+  var apology = "Sorry! There are no places in our database for that city.";
 
   p.html(apology)
 

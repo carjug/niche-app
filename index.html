@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="assets/javascripts/places.js"></script>
+  <script type="text/javascript" src="assets/javascripts/users.js"></script>
 </head>
 
 <header>
@@ -15,7 +16,7 @@
     <a href="index.html" id="logo" class="pull-left"><h5>Niche</h5></a>
     <h5 class="pull-right"></h5>
     <button class="login pull-right">Log In</button>
-    <button id="sign-up" class="pull-right">Sign Up</button>
+    <button id="sign-up" class="pull-right register">Sign Up</button>
 
   </div>
   <div class="jumbotron">
@@ -39,13 +40,13 @@
   <form class="sign-up-form">
     <h3>Enter Your Information</h3>
     <div class="form-group">
-      <input type="text" class="form-control" id="user" placeholder="Username">
+      <input type="text" class="form-control box" id="user" placeholder="Username">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" id="password" placeholder="Password">
+      <input type="password" class="form-control box" id="password" placeholder="Password">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" id="password-confirmation" placeholder="Password Confirmation">
+      <input type="password" class="form-control box" id="password-confirmation" placeholder="Password Confirmation">
     </div>
       <button id="register" class="btn btn-primary", method="post">
         Sign Up
