@@ -2,7 +2,12 @@
   padding-left: .75rem;
 }
 
-#login {
+.login {
+  padding-right: .75rem;
+  display: inline-block;
+}
+
+#logout {
   padding-right: .75rem;
   display: inline-block;
 }
