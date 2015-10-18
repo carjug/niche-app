@@ -23,10 +23,10 @@ $( "#sign-up" ).click(function () {
       dataType: 'json',
       error: function (jqHXR){
         if (jqHXR.status == 400 || jqHXR.status == 404) {
-          messages.append("Please try again")
+          messages.addClass("alert alert-danger");
+          messages.append("Please try again");
           renderRegistration(button);
         }
-
       },
       success: function (data, textStatus, jqHXR) {
         if (jqHXR.status == 200) {
@@ -44,12 +44,13 @@ $( "#sign-up" ).click(function () {
 });
 
 function renderRegistration(element) {
-  console.log(element)
+  var boxes = $(".box");
   if(element.hasClass("register") == true ) {
     element.parents("header").slideUp("fast");
   }
   $(".sign-up-form").css("display", "block");
-  $(".box").val("");
+
+  boxes.val("");
 }
 
 function showLoggedInState(user) {
