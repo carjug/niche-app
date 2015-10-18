@@ -1,10 +1,42 @@
 $(function () {
+  garbageCollect();
 
 $( ".login" ).click(function () {
+    garbageCollect();
     event.preventDefault();
     var button = $(this);
 
     renderLogin(button);
+  });
+
+$("#login").click(function () {
+    event.preventDefault();
+    var button    = $(this);
+    var messages  = $("div.message");
+    var method    = button.attr("method");
+    var name      = $("#user").val();
+    var pass      = $("#password").val();
+
+    var url  = "http://localhost:3000/login/" + name + "/" + pass
+
+    $.ajax(url, {
+      type: method,
+      dataType: 'json',
+      error: function (jqHXR){
+        if (jqHXR.status == 400 || jqHXR.status == 404) {
+          messages.addClass("alert alert-danger");
+          messages.append("Please try again");
+          renderLogin(button);
+        }
+      },
+      success: function (data, textStatus, jqHXR) {
+        if (jqHXR.status == 200) {
+          var user = data.username
+          Session = data.id;
+          showLoggedInState(user);
+        }
+      }
+    });
   });
 
 $( "#sign-up" ).click(function () {
@@ -43,9 +75,12 @@ $( "#sign-up" ).click(function () {
         }
       }
     });
-
   });
 });
+
+function garbageCollect() {
+  $(".places").empty();
+}
 
 function renderLogin(element) {
   var boxes = $(".box");
