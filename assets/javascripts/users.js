@@ -91,6 +91,7 @@ function renderLogin(element) {
     element.parents("header").slideUp("fast");
   }
   $(".login-form").css("display", "block");
+  $(".user-previews").css("display", "none");
 
   var boxes = $(".box");
   boxes.val("");
@@ -101,6 +102,7 @@ function renderRegistration(element) {
     element.parents("header").slideUp("fast");
   }
   $(".sign-up-form").css("display", "block");
+  $(".user-previews").css("display", "none");
 
   var boxes = $(".box");
   boxes.val("");
