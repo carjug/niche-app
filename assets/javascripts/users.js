@@ -14,8 +14,8 @@ $("#login").click(function () {
     var button    = $(this);
     var messages  = $("div.message");
     var method    = button.attr("method");
-    var name      = $("#user").val();
-    var pass      = $("#password").val();
+    var name      = $("#userL").val();
+    var pass      = $("#passwordL").val();
 
     var url  = "http://localhost:3000/login/" + name + "/" + pass
 
@@ -32,6 +32,8 @@ $("#login").click(function () {
       success: function (data, textStatus, jqHXR) {
         if (jqHXR.status == 200) {
           var user = data.username
+
+          console.log(user)
           Session = data.id;
           showLoggedInState(user);
         }
@@ -40,6 +42,7 @@ $("#login").click(function () {
   });
 
 $( "#sign-up" ).click(function () {
+    garbageCollect();
     event.preventDefault();
     var button = $(this);
 
@@ -80,27 +83,26 @@ $( "#sign-up" ).click(function () {
 
 function garbageCollect() {
   $(".places").empty();
+  $(".message").empty();
 }
 
 function renderLogin(element) {
-  var boxes = $(".box");
-
   if(element.hasClass("login") == true ) {
     element.parents("header").slideUp("fast");
   }
-
   $(".login-form").css("display", "block");
+
+  var boxes = $(".box");
   boxes.val("");
 }
 
 function renderRegistration(element) {
-  var boxes = $(".box");
-
   if(element.hasClass("register") == true ) {
     element.parents("header").slideUp("fast");
   }
-
   $(".sign-up-form").css("display", "block");
+
+  var boxes = $(".box");
   boxes.val("");
 }
 
@@ -108,6 +110,7 @@ function showLoggedInState(user) {
   if(Session) {
     $(".sign-up-form").css("display", "none");
     $("#sign-up").css("display", "none");
+    $(".login-form").css("display", "none");
     $(".login").toggleClass("logout")
     $(".logout").text("Log Out")
 
