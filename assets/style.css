@@ -1,4 +1,4 @@
-.jumbotron {
+.header {
   height: 40rem;
   background-image: url("./images/blue.jpeg"), url("./images/van.jpeg");
   background-size: 145rem 68rem;
@@ -37,4 +37,10 @@
   margin: 0 auto;
   width: 30rem;
   display: none;
+}
+
+.user-previews {
+  margin-top: -5rem;
+  height: 30rem;
+  text-align: center;
 }
