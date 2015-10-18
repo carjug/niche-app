@@ -1,5 +1,12 @@
 $(function () {
 
+$( ".login" ).click(function () {
+    event.preventDefault();
+    var button = $(this);
+
+    renderLogin(button);
+  });
+
 $( "#sign-up" ).click(function () {
     event.preventDefault();
     var button = $(this);
@@ -31,11 +38,8 @@ $( "#sign-up" ).click(function () {
       success: function (data, textStatus, jqHXR) {
         if (jqHXR.status == 200) {
           var user = data.username
-          console.log(user);
           Session = data.id;
-          console.log(Session);
           showLoggedInState(user);
-
         }
       }
     });
@@ -43,13 +47,25 @@ $( "#sign-up" ).click(function () {
   });
 });
 
+function renderLogin(element) {
+  var boxes = $(".box");
+
+  if(element.hasClass("login") == true ) {
+    element.parents("header").slideUp("fast");
+  }
+
+  $(".login-form").css("display", "block");
+  boxes.val("");
+}
+
 function renderRegistration(element) {
   var boxes = $(".box");
+
   if(element.hasClass("register") == true ) {
     element.parents("header").slideUp("fast");
   }
-  $(".sign-up-form").css("display", "block");
 
+  $(".sign-up-form").css("display", "block");
   boxes.val("");
 }
 
