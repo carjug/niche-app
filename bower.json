@@ -1,0 +1,25 @@
+{
+  "name": "niche-app",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Carly Jugler <carjug@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "animate.css": "~3.4.0",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}
