@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<div ng-controller="LoginController as login" class="col-md-6 col-md-offset-3">
   <h3>Log In Below</h3>
   <form class="form-horizontal" name="login-form" class="login-form">
     <div class="form-group">
@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-actions">
-      <button id="login" class="btn btn-primary" method="post">
+      <button ng-click="login.login(vm)" class="btn btn-primary" method="post">
         Log In
       </button>
       <a href="#/register" class="btn btn-link">Register</a>

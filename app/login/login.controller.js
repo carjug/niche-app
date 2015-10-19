@@ -13,15 +13,17 @@
 
     (function initController() {
       // reset login status
-      AuthenticationService.ClearCredentials();
+      AuthenticationService.ClearCredentials;
     })();
 
-    function login() {
+    function login(vm) {
+    console.log(vm)
       vm.dataLoading = true;
       AuthenticationService.Login(vm.username, vm.password, function (response) {
-        if (response.success) {
-          AuthenticationService.SetCredentials(vm.username, vm.password);
-          $location.path('/');
+        if (response.status == 200) {
+          console.log( "login controller ",response)
+          AuthenticationService.SetCredentials(vm.username, response);
+          $location.path('/home');
         }
         else {
           vm.dataLoading = false;

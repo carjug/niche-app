@@ -11,23 +11,27 @@
     var service = {};
     var url = "http://localhost:3000"
 
-    service.Login            = Login();
-    service.SetCredentials   = SetCredentials();
-    service.ClearCredentials = ClearCredentials();
+    service.Login            = Login;
+    service.SetCredentials   = SetCredentials;
+    service.ClearCredentials = ClearCredentials;
 
     return service;
 
     function Login(username, password, callback) {
-      $http.post(url + '/login', { username: username, password: password })
+      console.log(username, password)
+      $http.post( url + '/login', {
+          'username': username,
+          'password': password
+       })
        .success(function (response) {
            callback(response);
+           // console.log(response)
       });
     }
 
-    function SetCredentials(username, password) {
-      // don't know what the authdata will be
-      var authdata = Bearer['token']
-
+    function SetCredentials(username, response) {
+      var authdata = response.token
+      console.log(authdata)
       $rootScope.globals = {
         currentUser: {
           username: username,
@@ -35,7 +39,7 @@
         }
       };
 
-      $http.defaults.headers.common['Authorization'] = 'Bearer' + token;
+      $http.defaults.headers.common['Authorization'] = 'Bearer' + authdata;
       $cookieStore.put('globals', $rootScope.globals);
     }
 
