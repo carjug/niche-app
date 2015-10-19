@@ -8,22 +8,24 @@
   HomeController.$inject = ['UserService', '$rootScope'];
 
   function HomeController(UserService, $rootScope) {
-    var vm = this;
-    vm.user  = null;
+    var vm  = this;
+    vm.user = $rootScope.globals.currentUser.username || null;
+
+    $scope.user = vm.user
   //   vm.deleteUser = deleteUser;
 
-  //   initController();
+    // initController();
 
-  //   function initController() {
-  //       loadCurrentUser();
-  //   }
+    // function initController() {
+    //     loadCurrentUser();
+    // }
 
-  //   function loadCurrentUser() {
-  //     UserService.GetByUsername($rootScope.globals.currentUser.username)
-  //     .then(function (user) {
-  //       vm.user = user;
-  //     });
-  //   }
+    // function loadCurrentUser() {
+    //   UserService.GetByUsername($rootScope.globals.currentUser.username)
+    //   .then(function (user) {
+    //     vm.user = user;
+    //   });
+    // }
 
   //   function deleteUser(id) {
   //     UserService.Delete(id)

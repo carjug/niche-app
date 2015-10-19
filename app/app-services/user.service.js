@@ -10,11 +10,17 @@
     var service = {};
     var url = "http://localhost:3000"
 
+    service.GetByUsername = GetByUsername;
+
     // service.Create = Create();
     // service.Update = Update();
     // service.Delete = Delete();
 
     return service;
+
+    function GetByUsername(user) {
+      return $http.get(url + '/users', user).then(handleSuccess, handleError('Error creating user'));
+    }
 
     function Create(user) {
       return $http.post(url + '/users', user).then(handleSuccess, handleError('Error creating user'));
