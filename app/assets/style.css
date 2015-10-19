@@ -4,6 +4,11 @@
   background-size: 160rem 68rem;
 }
 
+.greet {
+  padding-left: 1.5rem;
+  margin-top: 2.75rem;
+}
+
 #welcome {
   padding-top: 10rem;
 }
