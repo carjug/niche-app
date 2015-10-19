@@ -1,7 +1,7 @@
 .header {
   height: 40rem;
   background-image: url("./images/blue.jpeg"), url("./images/van.jpeg");
-  background-size: 145rem 68rem;
+  background-size: 160rem 68rem;
 }
 
 #welcome {
@@ -14,7 +14,7 @@
 }
 
 .login {
-  padding-right: .75rem;
+  padding-right: 1rem;
   display: inline-block;
 }
 
@@ -23,7 +23,7 @@
   display: inline-block;
 }
 
-#sign-up {
+.register {
   padding-right: .75rem;
 }
 

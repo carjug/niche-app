@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/carjug/niche-app/issues"
   },
-  "main": "app.js",
+  "main": "gulpfile.js",
   "description": "",
   "dependencies": {
     "bower": "^1.6.3",

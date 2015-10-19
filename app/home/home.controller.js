@@ -9,7 +9,7 @@
 
   function HomeController(UserService, $rootScope) {
     var vm = this;
-    vm.user       = null;
+    vm.user  = null;
   //   vm.deleteUser = deleteUser;
 
   //   initController();
